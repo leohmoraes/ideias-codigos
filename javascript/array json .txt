@@ -1,0 +1,68 @@
+var name=[];
+var age=[];
+name.push('sulfikar');
+age.push('24');
+var ent={};
+for(var i=0;i<name.length;i++)
+{
+ent.name=name[i];
+ent.age=age[i];
+}
+JSON.Stringify(ent);			
+-----
+
+valArray1=[121,324,42,31];
+valArray2=[232,131,443];
+myJson={objArray1:{},objArray2:{}};
+for(var k=1;k<valArray1.length;k++){
+    var objName='obj'+k;
+    var objValue=valArray1[k];
+    myJson.objArray1[objName]=objValue;
+}
+for(var k=1;k<valArray2.length;k++){
+    var objName='obj'+k;
+    var objValue=valArray2[k];
+    myJson.objArray2[objName]=objValue;
+}
+console.log(JSON.stringify(myJson));
+
+--
+function replacer(key, value) {
+  if (typeof value === "string") {
+    return undefined;
+  }
+  return value;
+}
+
+var foo = {foundation: "Mozilla", model: "box", week: 45, transport: "car", month: 7};
+var jsonString = JSON.stringify(foo, replacer);
+
+
+-----
+
+// Creating an example of JSON
+var session = {
+  'screens': [],
+  'state': true
+};
+session.screens.push({ 'name': 'screenA', 'width': 450, 'height': 250 });
+session.screens.push({ 'name': 'screenB', 'width': 650, 'height': 350 });
+session.screens.push({ 'name': 'screenC', 'width': 750, 'height': 120 });
+session.screens.push({ 'name': 'screenD', 'width': 250, 'height': 60 });
+session.screens.push({ 'name': 'screenE', 'width': 390, 'height': 120 });
+session.screens.push({ 'name': 'screenF', 'width': 1240, 'height': 650 });
+
+// Converting the JSON string with JSON.stringify()
+// then saving with localStorage in the name of session
+localStorage.setItem('session', JSON.stringify(session));
+
+// Example of how to transform the String generated through 
+// JSON.stringify() and saved in localStorage in JSON object again
+var restoredSession = JSON.parse(localStorage.getItem('session'));
+
+// Now restoredSession variable contains the object that was saved
+// in localStorage
+console.log(restoredSession);
+
+
+http://www.mdelrosso.com/sheepit/index.php?lng=en_GB&sec=demo7

@@ -1,0 +1,38 @@
+Andar Corporativo
+Apartamento
+Apartamento Duplex
+Apartamento Garden
+Apartamento Triplex
+Área
+Bangalô
+Barracão
+Box/Garagem
+Casa
+Chácara
+Cobertura
+Conjunto
+Edícula
+Fazenda
+Flat
+Galpão
+Haras
+Hotel
+Ilha
+Kitnet
+Laje
+Loft
+Loja
+Pavilhão
+Penthouse
+Ponto
+Pousada
+Prédio
+Rancho
+Resort
+Sala
+Salão
+Sítio
+Sobrado
+Studio
+Terreno
+Village

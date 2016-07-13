@@ -1,0 +1,131 @@
+Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
+
+
+for (var i = 0; i < localStorage.length; i++) 
+	console.log( localStorage.key(i) +" has value " + localStorage[localStorage.key(i)] )
+
+localStorage.setItem('names_length', names.length);
+localStorage.setItem('names_0', names[0]);
+localStorage.setItem('names_1', names[1]);
+localStorage.setItem('names_' + n, names[n]);	
+
+//Setter
+Storage.setObj('users.albums.sexPistols',"blah");
+Storage.setObj('users.albums.sexPistols',{ sid : "My Way", nancy : "Bitch" });
+Storage.setObj('users.albums.sexPistols.sid',"Other songs");
+
+//Getters
+Storage.getObj('users');
+Storage.getObj('users.albums');
+Storage.getObj('users.albums.sexPistols');
+Storage.getObj('users.albums.sexPistols.sid');
+Storage.getObj('users.albums.sexPistols.nancy');
+
+If (typeof JSON == "undefined") {alert ( "Atualize seu navegador."); }
+
+
+http://www.jstorage.info/
+<script src="//cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="jstorage.js"></script>
+<script>
+if ($.jStorage.storageAvailable()) {
+	
+	// Check if "key" exists in the storage
+	var value = $.jStorage.get("key");
+	if(!value){
+	    // if not - load the data from the server
+	    value = load_data_from_server()
+	    // and save it
+	    $.jStorage.set("key",value);
+	}
+}
+
+
+</script>
+
+$.jStorage.index()
+LISTA
+
+$.jStorage.deleteKey(key)
+DESTROY
+
+quando alterado em outra janela, troca aqui tb
+$.jStorage.listenKeyChange("mykey", function(key, action){
+    console.log(key + " has been " + action);
+});
+
+http://rhaboo.org/
+var store = Rhaboo.persistent('Some name');
+store.write('count', store.count ? store.count+1 : 1);
+store.write('somethingfancy', {
+  one: ['man', 'went'],
+  2: 'mow',
+  went: [  2, { mow: ['a', 'meadow' ] }, {}  ]
+});
+store.somethingfancy.went[1].mow.write(1, 'lawn');
+
+
+
+https://github.com/mar10/persisto
+https://github.com/mar10/persisto/blob/master/src/persisto.js
+
+var store = PersistentObject("mySettings", {
+              init: {
+                theme: "default"
+                }
+            });
+store.get("theme");  // -> 'default'
+store.set("owner", {name: "joe", age: 42});
+store.set("owner.role", "manager");
+store.get("owner.age");  // -> 42
+store.remove("owner.age");
+// -> store now holds {theme: "default", owner: {name: "joe", role: "manager"}}
+
+// Maintain client's preferences and define some defaults:
+var settingsStore = PersistentObject("mySettings", {
+        init: {
+          nickname: "anonymous",
+          theme: "default"
+          }
+      });
+
+// Initialize form elements with current data
+settingsStore.writeToForm("#settingsForm");
+
+// Allow users to edit and save settings:
+$("#settingsForm").submit(function(e){
+  // ... maybe some validations here ...
+  settingsStore.readFromForm(this);
+  e.preventDefault();
+});
+
+<form id="settingsForm" action="">
+  <label>Nickname:<input name="nickname" type="text" value="" /></label><br>
+  <label>Theme: 
+    <fieldset>
+      <label> <input name="theme" type="radio" value="default" /> Standard </label><br>
+      <label> <input name="theme" type="radio" value="light" /> Light </label><br>
+      <label> <input name="theme" type="radio" value="dark" /> Dark </label>
+    </fieldset>
+  </label>
+  <button type="Submit">Submit</button>
+</form>
+
+settingsStore.readFromForm(this, {
+  addNew: true
+});
+
+
+-----
+var formValues;
+Modal.onclose(function() {
+  formValues = $('#modalform').serialize();
+  // "do" something with formValues
+});
+

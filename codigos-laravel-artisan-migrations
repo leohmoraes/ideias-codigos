@@ -1,0 +1,17 @@
+php artisan make:migration add_campos_to_telefones_table --table=telefones
+php artisan make:migration add_delete_em_cascata_to_emails_table --table=emails
+            $table->foreign('pessoa_id')->references('id')->on('pessoas');
+
+
+$table->dropForeign('pessoas_profissao_id_foreign');
+
+$table->foreign('pessoas_profissao_id_foreign')
+		->references('id')->on('profissao')
+		->onDelete('cascade');
+
+        Schema::table('emails', function (Blueprint $table) {
+            $table->dropForeign('emails_pessoa_id_foreign');
+
+            $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('cascade');
+
+        });		
